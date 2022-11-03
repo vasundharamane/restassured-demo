@@ -15,12 +15,12 @@ public class HamcrestExample {
         RestAssured
                 .given()
                 .when()
-                .get("https://petstore.swagger.io/v2/pet/9223372036854247353")
+                .get("https://petstore.swagger.io/v2/pet/9223372036854288964")
                 .then()
                 //we do have other methods like equalToIgnoringCase,  equalToIgnoringWhiteSpace, containsString, startsWith, endsWith for string comparison
-                .body("name", equalToIgnoringCase("doggie"))             //string comparison
+                .body("name", equalToIgnoringCase("fish"))             //string comparison
                 //we do have other methods like greaterThan, greaterThan, greaterThanOrEqualTo, lessThan ,lessThanOrEqualTo for number comparison
-                .body("id", equalTo(9223372036854247353L)) //number comparison
+                .body("id", equalTo(9223372036854288964L)) //number comparison
 
 //                .body("name",equalToIgnoringCase("doggie"),"id",equalTo(9223372036854247353L))
                 .log().all();

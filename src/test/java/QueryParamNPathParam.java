@@ -9,16 +9,19 @@ public class QueryParamNPathParam {
 
     @Test
     public void queryParamExampla() {
-        RestAssured.baseURI = "https://petstore.swagger.io/v2/pet";
+        RestAssured.baseURI = "https://reqres.in/api";
         RestAssured.given()
-                .queryParam("status", "available")
+                .queryParam("page", "2")
                 .when()
-                .get("/findByStatus")
+                .log().all()
+                .get("/users")
                 .then()
                 .log().all();
     }
 
 
+    //observe country and its URL parameter {country}
+    // and pin and its pin parameter {pin}
     @Test
     public void pathParamExample() {
         RestAssured.given()
