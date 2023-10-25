@@ -30,7 +30,7 @@ public class JsonPathExample {
 
         String outPutDescription = response.jsonPath().getString("description");
         System.out.println("Description  " + outPutDescription);
-        String outPutDescription2 = (String) response.jsonPath().get("description");
+        String outPutDescription2 = response.jsonPath().get("description");
         System.out.println("Description  " + outPutDescription2);
     }
 

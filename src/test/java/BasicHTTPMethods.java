@@ -56,8 +56,6 @@ public class BasicHTTPMethods {
     @Test
     public void testPOST() {
 
-
-
         Response response = RestAssured.given()
 //                .spec(requestSpecification)
                 .header("Content-Type", "application/json")

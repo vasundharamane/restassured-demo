@@ -30,7 +30,7 @@ public class GSONExample {
                 .then().log().all().extract().response();
 
 
-        Map<String, Object> bodyFromResponse = new Gson().fromJson(response.asPrettyString(), new HashMap<String, Object>().getClass());
+        HashMap bodyFromResponse = new Gson().fromJson(response.asPrettyString(), HashMap.class);
 
         System.out.println("Description  : " + bodyFromResponse.get("description"));
         System.out.println("id " + bodyFromResponse.get("id"));
@@ -38,26 +38,26 @@ public class GSONExample {
     }
 
     @Test
-    public void withoutgsonToJSONExample() {
+    public void withoutToJSONExample() {
 
         Faker faker = new Faker();
-        Map<String, Object> bodypramMap = new HashMap<String, Object>();
+        Map<String, Object> stringObjectHashMap = new HashMap<>();
 //    bodypramMap.put("Id",faker.number().digits(5));
-        bodypramMap.put("name", faker.funnyName().name());
-        bodypramMap.put("description", faker.beer().hop() + faker.beer().malt());
+        stringObjectHashMap.put("name", faker.funnyName().name());
+        stringObjectHashMap.put("description", faker.beer().hop() + faker.beer().malt());
 
 //        String jsonPayload = new Gson().toJson(bodypramMap);
 //        System.out.println("jsonPayload : " + jsonPayload);
 
         Response response = RestAssured
                 .given()
-                .body(bodypramMap)
+                .body(stringObjectHashMap)
                 .header("content-type", "application/json")
                 .post("http://tosca-webservice-ng.azurewebsites.net/api/Coffees_V4")
                 .then().log().all().extract().response();
 
 
-        Map<String, Object> bodyFromResponse = new Gson().fromJson(response.asPrettyString(), new HashMap<String, Object>().getClass());
+        HashMap bodyFromResponse = new Gson().fromJson(response.asPrettyString(), HashMap.class);
 
         System.out.println("Description  : " + bodyFromResponse.get("description"));
         System.out.println("id " + bodyFromResponse.get("id"));
